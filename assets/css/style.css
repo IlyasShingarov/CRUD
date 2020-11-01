@@ -1,0 +1,42 @@
+
+*{
+    box-sizing: border-box;
+}
+
+body {
+    max-width:600px;
+    margin:auto;
+    font-family: Calibri, serif;
+}
+
+.btn {
+    border: 1px solid #333;
+    display: inline-block;
+    padding: 5px 15px;
+    text-decoration: none;
+    color: #000;
+}
+
+.btn:hover {
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    background: linear-gradient(to bottom, #fcfff4, #e9e9ce);
+    color: #a00;
+}
+
+.user_id
+{
+    display: inline-block;
+}
+
+.name {
+    display: inline-block;
+    /*fonst-size:10px;*/
+}
+
+.user {
+    padding:10px;
+    margin:10px;
+    box-shadow:0px 0px 10px 1px rgba(0,0,0,0.4);
+    border-radius:10px;
+}
+
