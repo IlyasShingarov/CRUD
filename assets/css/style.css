@@ -1,54 +1,31 @@
-* {
+
+*{
     box-sizing: border-box;
 }
 
 body {
+    max-width:600px;
+    margin:auto;
     font-family: Calibri, serif;
-    background-color: #E5E5E5;
-}
-
-.main {
-    padding: 30px;
-    margin: auto;
-    max-width: 600px;
-    color: #626780;
-    max-width: 600px;
-    background: #FFFFFF;
-    box-shadow: 0px 20px 40px rgba(149, 149, 201, 0.4);
-    border-radius: 10px;
-}
-
-.main__interface {
-    display: flex;
-    justify-content: space-between;
-    margin-bottom: 30px;
 }
 
 .btn {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-width: 250px;
-    padding: 6px 12px;
+    border: 1px solid #333;
+    display: inline-block;
+    padding: 5px 15px;
     text-decoration: none;
     border-radius: 10px;
     color: #000;
-    border: none;
-    border-radius: 4px;
-    outline: none;
-    background-color: #9595C9;
-    color: #fff;
-    box-shadow: 0px 5px 15px rgba(227, 184, 115, 0.2);
-    transition: box-shadow 0.2s;
 }
 
 .btn:hover {
-    cursor: pointer;
-    box-shadow: none;
-    box-shadow: 0px 10px 20px rgba(149, 149, 201, 0.4);
+    box-shadow: 0 0 5px rgba(0,0,0,0.3);
+    background: linear-gradient(to bottom, #fcfff4, #62625c);
+    color: #a00;
 }
 
-.user_id {
+.del_btn
+{
     display: inline-block;
 }
 
@@ -58,8 +35,9 @@ body {
 }
 
 .user {
-    padding: 10px;
-    margin: 10px;
-    box-shadow: 0px 0px 10px 1px rgba(0, 0, 0, 0.4);
-    border-radius: 4px;
+    padding:10px;
+    margin:10px;
+    box-shadow:0px 0px 10px 1px rgba(0,0,0,0.4);
+    border-radius:10px;
 }
+
