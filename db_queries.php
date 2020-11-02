@@ -1,4 +1,58 @@
 <?php
+
+function get_user_by_id($db, $id)
+{
+    $statement = $db->prepare("SELECT * FROM users WHERE user_id =" . $id);
+    $statement->execute();
+    return $statement->fetch();
+}
+
+function get_contacts_by_id($db, $id)
+{
+    $statement = $db->prepare("SELECT * FROM contacts where user_id = " . $id);
+    $statement->execute();
+    return $statement->fetchAll();
+}
+
+function print_card($user, $contacts)
+{
+    ?>
+    <div class="user">
+        <div class="name">
+            <?php echo $user['user_name']; ?>
+        </div>
+        <div class="contacts">
+            <?php foreach ($contacts as $contact):?>
+                <div class="contact">
+                    <?=$contact['phone_number']?>
+                </div>
+            <?php endforeach;?>
+        </div>
+    </div>
+    <?php
+}
+
+function print_upd_form($user, $contacts)
+{
+    ?>
+    <div class="user">
+        <div class="name">
+            <label>Имя</label>
+            <input type="text" name="name" value="<?=$user['user_name']?>">
+        </div>
+        <div class="contacts_upd">
+            <?php $id = 0?>
+            <label>Контакты</label>
+            <?php foreach ($contacts as $contact):?>
+                <div class="contact">
+                    <input type="tel" name="phone[<?php echo ++$id ?>]" value="<?=$contact['phone_number']?>">
+                </div>
+            <?php endforeach;?>
+        </div>
+    </div>
+    <?php
+}
+
 function print_all($db)
 {
     $statement = $db->prepare("SELECT * FROM users");
@@ -16,6 +70,9 @@ function print_all($db)
             <div class="user">
                 <div class="name">
                     <?=$row['user_name']?>
+                </div>
+                <div>
+                    <a href="/update_entry.php?upd=<?php echo $row['user_id']; ?>" class="upd_btn">Update</a>
                 </div>
                 <div>
                     <a href="/delete_entry.php?del=<?php echo $row['user_id']; ?>" class="del_btn">Delete</a>
