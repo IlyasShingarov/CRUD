@@ -48,8 +48,7 @@ function print_upd_form($user, $contacts)
                 <label>Контакты</label>
                 <?php foreach ($contacts as $contact):?>
                     <div class="contact">
-                        <label><?="$id."?></label>
-                        <input type="tel" name="phone[<?php echo $id++ ?>]" value="<?=$contact['phone_number']?>">
+                        <label><?="$id."?><input type="tel" name="phone[<?php echo $id++ ?>]" value="<?=$contact['phone_number']?>"></label>
                     </div>
                 <?php endforeach;?>
             </div>
@@ -58,49 +57,8 @@ function print_upd_form($user, $contacts)
     <?php
 }
 
-function print_all($db)
+function iterate_to_print($db, $result)
 {
-    $statement = $db->prepare("SELECT * FROM users");
-    $statement->execute();
-    $result = $statement->fetchAll();
-
-    if ($result)
-    {
-        foreach ($result as $row)
-        {
-            $contact_stat = $db->prepare("SELECT * FROM contacts where user_id = " . $row['user_id']);
-            $contact_stat->execute();
-            $contacts = $contact_stat->fetchAll();
-            ?>
-            <div class="user">
-                <div class="name">
-                    <?=$row['user_name']?>
-                </div>
-                <div>
-                    <a href="/update_entry.php?upd=<?php echo $row['user_id']; ?>" class="upd_btn">Update</a>
-                </div>
-                <div>
-                    <a href="/delete_entry.php?del=<?php echo $row['user_id']; ?>" class="del_btn">Delete</a>
-                </div>
-                <div class="contacts">
-                    <?php foreach ($contacts as $contact):?>
-                        <div class="contact">
-                            <?=$contact['phone_number']?>
-                        </div>
-                    <?php endforeach;?>
-                </div>
-            </div>
-            <?php
-        }
-    }
-}
-
-function print_db_by_name($db, $name)
-{
-    $statement = $db->prepare("SELECT * FROM users WHERE user_name like '$name'");
-    $statement->execute();
-    $result = $statement->fetchAll();
-
     foreach ($result as $row)
     {
         $contact_stat = $db->prepare("SELECT * FROM contacts where user_id = " . $row['user_id']);
@@ -111,6 +69,9 @@ function print_db_by_name($db, $name)
         <div class="user">
             <div class="name">
                 <?=$row['user_name']?>
+            </div>
+            <div>
+                <a href="/update_entry.php?upd=<?php echo $row['user_id']; ?>" class="upd_btn">Update</a>
             </div>
             <div>
                 <a href="/delete_entry.php?del=<?php echo $row['user_id']; ?>" class="del_btn">Delete</a>
@@ -125,6 +86,24 @@ function print_db_by_name($db, $name)
         </div>
         <?php
     }
+}
+
+function print_all($db)
+{
+    $statement = $db->prepare("SELECT * FROM users");
+    $statement->execute();
+    $result = $statement->fetchAll();
+
+    if ($result) iterate_to_print($db, $result);
+}
+
+function print_db_by_name($db, $name)
+{
+    $statement = $db->prepare("SELECT * FROM users WHERE user_name like '$name'");
+    $statement->execute();
+    $result = $statement->fetchAll();
+
+    if ($result) iterate_to_print($db, $result);
 }
 
 function delete_by_id($db, $id)

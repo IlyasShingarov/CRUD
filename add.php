@@ -5,33 +5,24 @@ $db = init_db();
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
     $name = $_POST["name"];
-    //echo $_POST["name"] . "<br>";
 
     $db->prepare("INSERT INTO users (user_name) VALUES ('".$name."')")->execute();
-    //var_dump("INSERT INTO user (`user_name`) VALUES ('".$name."')");
     $user_id = $db->lastInsertId();
 
     foreach ($_POST["phone"] as $ph)
     {
-        //echo $ph . "<br>";
         $db->prepare("INSERT INTO contacts (user_id, phone_number) VALUES (".$user_id.", '".$ph."');")->execute();
     }
 }
 ?>
 
+<a href="/" class="btn">Назад к списку контактов</a>
+
 <form action="" method="post">
-    <label>
-        Имя
-        <input type="text" name="name">
-    </label>
-    <div class="phones_list">
-
-    </div>
-
+    <label>Имя<input type="text" name="name"></label>
+    <div class="phones_list"></div>
     <button type="button" id="add_btn_phone"> Добавить еще номер телефона</button>
-
     <button type="submit">Создать</button>
-
 </form>
 
 <script>
