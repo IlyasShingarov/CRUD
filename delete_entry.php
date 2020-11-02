@@ -6,5 +6,5 @@ $db = init_db();
 if($_SERVER["REQUEST_METHOD"] == "GET" and isset($_GET['del']))
 {
     delete_by_id($db, $_GET['del']);
-    header('location: delete.php');
+    header('location: index.php');
 }
