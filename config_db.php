@@ -1,5 +1,4 @@
 <?php
-
 function init_db()
 {
     try {
@@ -14,31 +13,4 @@ function init_db()
     } catch (PDOException $e) {
         print "Error!: " . $e->getMessage() . "<br />";
     }
-
-
-    /*
-    try {
-        $sql = 'Select * FROM pg_database';
-        echo '<pre>';
-
-        foreach ($dbconn->query($sql) as $row) {
-            print_r($row);
-        }
-    } catch (PDOException $e) {
-        print "Error!: " . $e->getMessage() . "<br />";
-    }
-
-    */
-
-    /*
-    $db = new PDO("mysql:host=localhost;dbname=someproj", "root", "");
-
-    if (!$db)
-    {
-        echo "Ошибка создания бд";
-    }
-    return $db;
-    */
 }
-
-?>

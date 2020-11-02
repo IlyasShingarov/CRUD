@@ -36,19 +36,24 @@ function print_upd_form($user, $contacts)
 {
     ?>
     <div class="user">
-        <div class="name">
-            <label>Имя</label>
-            <input type="text" name="name" value="<?=$user['user_name']?>">
-        </div>
-        <div class="contacts_upd">
-            <?php $id = 0?>
-            <label>Контакты</label>
-            <?php foreach ($contacts as $contact):?>
-                <div class="contact">
-                    <input type="tel" name="phone[<?php echo ++$id ?>]" value="<?=$contact['phone_number']?>">
-                </div>
-            <?php endforeach;?>
-        </div>
+        <form action="" method="post">
+            <div class="name">
+                <label>
+                    Имя
+                    <input type="text" name="name" value="<?=$user['user_name']?>">
+                </label>
+            </div>
+            <div class="contacts_upd">
+                <?php $id = 1?>
+                <label>Контакты</label>
+                <?php foreach ($contacts as $contact):?>
+                    <div class="contact">
+                        <label><?="$id."?></label>
+                        <input type="tel" name="phone[<?php echo $id++ ?>]" value="<?=$contact['phone_number']?>">
+                    </div>
+                <?php endforeach;?>
+            </div>
+        </form>
     </div>
     <?php
 }
