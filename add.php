@@ -5,7 +5,7 @@ $db = init_db();
 if($_SERVER["REQUEST_METHOD"] == "POST")
 {
     $name = $_POST["name"];
-    echo $_POST["name"] . "<br>";
+    //echo $_POST["name"] . "<br>";
 
     $db->prepare("INSERT INTO users (user_name) VALUES ('".$name."')")->execute();
     //var_dump("INSERT INTO user (`user_name`) VALUES ('".$name."')");
@@ -13,10 +13,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
 
     foreach ($_POST["phone"] as $ph)
     {
-        echo $ph . "<br>";
-
+        //echo $ph . "<br>";
         $db->prepare("INSERT INTO contacts (user_id, phone_number) VALUES (".$user_id.", '".$ph."');")->execute();
-
     }
 }
 ?>
@@ -35,7 +33,6 @@ if($_SERVER["REQUEST_METHOD"] == "POST")
     <button type="submit">Создать</button>
 
 </form>
-
 
 <script>
     let id = 0;

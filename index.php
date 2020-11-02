@@ -5,11 +5,12 @@
         <a href="/delete.php" class="btn">Удалить пользователя по имени</a>
     </div>
 
-    <div class="container">
-
+  <div class="container">
     <?php
+    include_once "db_queries.php";
     include_once "config_db.php";
     $db = init_db();
+
     $statement = $db->prepare("SELECT * FROM users");
     $statement->execute();
 
@@ -42,6 +43,8 @@
         <?php
     }
     ?>
-
     </div>
+
+    print_all($db);
+    ?>
 </div>
