@@ -2,8 +2,7 @@
 
 <?php
 include_once "./config_db.php";
-include_once "./print_db_by_name.php";
-include_once "./delete_by_id.php";
+include_once "./db_queries.php";
 session_start();
 $db = init_db();
 if($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST['find']))
@@ -34,32 +33,8 @@ if($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST['delete']))
 
 </form>
 
-
-<script>
-    let id = 0;
-    function add_phone_field(e) {
-        e.preventDefault();
-        id++;
-
-        let list = document.querySelector(".phones_list");
-
-        let label = document.createElement('label');
-        label.innerText = "Номер телефона " + id;
-        let inp = document.createElement("input");
-        inp.type="tel";
-        inp.name="phone["+ (id - 1) +"]";
-        label.appendChild(inp);
-        list.appendChild(label);
-    }
-
-    function print_search(e) {
-
-    }
-
-    function init(e) {
-        add_phone_field(e);
-        document.getElementById("find_by_name_btn").addEventListener("click", print_search);
-    }
-
-    document.addEventListener('DOMContentLoaded', init);
-</script>
+<?php
+if (isset($_GET['del'])) {
+$id = $_GET['del'];
+echo $id;
+}
