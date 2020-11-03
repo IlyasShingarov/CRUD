@@ -7,7 +7,6 @@ function print_all($db)
     if ($result) iterate_to_print($db, $result);
 }
 
-//Форма для обновления
 function print_upd_form($user, $contacts)
 {
     ?>
@@ -30,7 +29,6 @@ function print_upd_form($user, $contacts)
                 <?php endforeach;?>
             </div>
             <div class="footer__form">
-                
                 <button class="btn" type="button" id="add_phone_entry">Добавить контактный номер</button>
                 <button class="btn" type="submit"  id="upd_btn" name="update">Обновить запись</button>
             </div>
@@ -39,7 +37,6 @@ function print_upd_form($user, $contacts)
     <?php
 }
 
-// Карточка в панели обновления
 function print_card($user, $contacts)
 {
     ?>
@@ -66,8 +63,6 @@ function print_by_name($db, $name)
     if ($result) iterate_to_print($db, $result);
 }
 
-
-// Карточка 
 function iterate_to_print($db, $result)
 {
     foreach ($result as $row)

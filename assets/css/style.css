@@ -72,16 +72,11 @@ body {
     margin-bottom: 15px;
     box-shadow:0px 0px 10px 1px rgba(0,0,0,0.4);
     border-radius:10px;
-
-
 }
-
-
 
 /* add number */
 
 .main__add {
-    /* display: flex; */
     position: relative;
 }
 
@@ -103,8 +98,6 @@ body {
   }
 
 .close {
-    
- 
     width: 28px;
     height: 28px;
     opacity: 0.3;
@@ -126,7 +119,6 @@ body {
   .close:after {
     transform: rotate(-45deg);
   }
-
 
 .form {
     display: flex;

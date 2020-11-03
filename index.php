@@ -1,8 +1,6 @@
 <?php session_start();?>
 <link rel="stylesheet" href="assets/css/style.css">
 <div class="main">
-
-    
     <div>
         <form action="" method="post">
             <div class="form__interface">
@@ -40,5 +38,4 @@
         <?php
     }
 ?>
-
 </div>

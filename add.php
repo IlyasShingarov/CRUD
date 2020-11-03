@@ -10,11 +10,8 @@
                 <label class="label">Имя</label>
                 <input class="input" type="text" name="name">
             </div>
-            
             <div class="list">
-                
                 </div>
-                
                 <button class="add btn" type="button" id="add_btn_phone"> Добавить еще номер телефона</button>
             </div>
         <button class="create btn"type="submit">Создать</button>
