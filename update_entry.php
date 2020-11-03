@@ -10,28 +10,21 @@ $db = init_db();
 if (isset($_GET['upd']))
 {
     $id = $_SESSION['id'] = $_GET['upd'];
-    $update = true;
+
+    if ($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST['update']))
+    {
+        $name = $_POST['name_upd'];
+        update_name_by_id($db, $name, $id);
+        //$db->prepare("UPDATE contacts SET phone_number =" . "$name" . " WHERE user_id =" . "$id")->execute();
+    }
 
     $user_record = get_user_by_id($db, $id);
     $contacts_record = get_contacts_by_id($db, $id);
 
     print_card($user_record, $contacts_record);
     print_upd_form($user_record, $contacts_record);
-
-    if ($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST['update']))
-    {
-        $name = $_POST['name'];
-        $db->prepare("UPDATE users SET user_name =" . "$name" . " WHERE user_id " . "= $id")->execute();
-        $db->prepare("UPDATE contacts SET phone_number =" . "$name" . " WHERE user_id " . "= $id")->execute();
-    }
 }
-
 ?>
-
-<form action="" method="post">
-    <button type="button" id="add_phone_entry">Добавить контактный номер</button>
-    <button type="submit"  id="upd_btn" name="update">Обновить запись</button>
-</form>
 
 <script>
     let id = 0;

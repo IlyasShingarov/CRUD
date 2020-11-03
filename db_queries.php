@@ -42,4 +42,11 @@ function delete_by_id($db, $id)
 {
     $db->prepare("DELETE FROM users WHERE user_id = '$id'")->execute();
 }
-?>
+
+function update_name_by_id($db, $name, $id)
+{
+    $db->prepare("UPDATE users SET user_name=" . "'$name'" . " WHERE user_id =" . "$id")->execute();
+}
+
+function update_contact_by_id($db, $id)
+{}

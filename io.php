@@ -15,7 +15,7 @@ function print_upd_form($user, $contacts)
             <div class="name">
                 <label>
                     Имя
-                    <input type="text" name="name" value="<?=$user['user_name']?>">
+                    <input type="text" name="name_upd" value="<?=$user['user_name']?>">
                 </label>
             </div>
             <div class="contacts_upd">
@@ -27,6 +27,8 @@ function print_upd_form($user, $contacts)
                     </div>
                 <?php endforeach;?>
             </div>
+            <button type="button" id="add_phone_entry">Добавить контактный номер</button>
+            <button type="submit"  id="upd_btn" name="update">Обновить запись</button>
         </form>
     </div>
     <?php
