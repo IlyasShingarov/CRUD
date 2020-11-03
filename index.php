@@ -1,5 +1,5 @@
 <?php session_start();?>
-<link rel="stylesheet" href="./assets/css/style.css">
+<link rel="stylesheet" href="assets/css/style.css">
 <div class="main">
 
     
@@ -7,7 +7,7 @@
         <form action="" method="post">
             <div class="form__interface">
 
-                <a href="/add.php" class="btn">Создать новую запись</a>
+                <a href="add.php" class="btn">Создать новую запись</a>
                 <div class="search">
 
                     <label class="label"> Имя </label>

@@ -23,13 +23,14 @@ body {
 }
 
 .btn {
+    min-width: 120px;
     border: none;
     padding: 5px 15px;
     text-decoration: none;
     border-radius: 4px;
     color: #626780;
     box-shadow: 0px 5px 15px rgba(227, 184, 115, 0.2);
-  transition: box-shadow 0.2s;
+    transition: box-shadow 0.2s;
 }
 
 .btn:hover {
@@ -44,8 +45,9 @@ body {
 }
 
 .name {
-    display: inline-block;
-    /*fonst-size:10px;*/
+    /* display: inline-block; */
+    margin-bottom: 20px;
+    
 }
 
 .form__interface {
@@ -66,7 +68,7 @@ body {
 }
 
 .user {
-    padding:10px;
+    padding:20px;
     margin-bottom: 15px;
     box-shadow:0px 0px 10px 1px rgba(0,0,0,0.4);
     border-radius:10px;
@@ -83,9 +85,9 @@ body {
     position: relative;
 }
 
-img {
-    max-width: 40px;
-    max-height: 40px;
+.back__icon {
+    max-width: 28px;
+    max-height: 28px;
 }
 
 .back {
@@ -135,6 +137,16 @@ img {
 
 }
 
+.back__form {
+    margin-top: 20px;
+    display: flex;
+    justify-content: center;
+}
+
+.btn__back {
+    min-width: 100px;
+}    
+
 .create {
     margin-left: 10px;
     margin-top: 37px;
@@ -145,6 +157,59 @@ img {
     display: flex;
     justify-content: start;
     margin-bottom: 10px;
+}
+
+.contact {
+    align-items: center;
+    display: flex;
+}
+
+.contacts_upd {
+    margin-bottom: 15px;
+}    
+
+.contact_entry {
+    margin-top: 20px;
+    /* margin-bottom: 5px; */
+}
+
+.hrefs {
+    display: flex;
+}
+
+.delete {
+    margin-left: 10px;
+    max-width: 16px;
+    max-height: 16px;
+    opacity: 0.5;
+} 
+.refresh {
+    max-width: 16px;
+    max-height: 16px;
+    opacity: 0.5;
+
+}
+
+.x-mark {
+    margin-left: 15px;
+    max-width: 16px;
+    max-height: 16px;
+    opacity: 0.2;
+}
+
+.x-mark:hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+.delete:hover {
+    opacity: 1;
+    cursor: pointer;
+}   
+
+.refresh:hover {
+    opacity: 1;
+    cursor: pointer;
 }
 
 .add {
@@ -160,7 +225,7 @@ img {
     background-color: transparent;
     /* border: none; */
   
-    border-bottom: 1px solid rgba(54, 54, 54, 0.3);
+    border: 1px solid rgba(54, 54, 54, 0.3);
     color: 	rgba(98, 103, 128,1);
     padding: 5px 0;
   }
