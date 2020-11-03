@@ -32,7 +32,7 @@ function get_contacts($db, $user)
 
 function get_by_name($db, $name)
 {
-    $statement = $db->prepare("SELECT * FROM users WHERE user_name like '$name%' ORDER BY user_id");
+    $statement = $db->prepare("SELECT * FROM users WHERE user_name like '$name' ORDER BY user_id");
     $statement->execute();
 
     return $statement->fetchAll();
