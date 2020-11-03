@@ -9,6 +9,10 @@ body {
     font-family: Calibri, serif;
 }
 
+.phone {
+    display: block;
+}
+
 .btn {
     border: 1px solid #333;
     display: inline-block;

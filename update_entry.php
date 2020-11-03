@@ -2,6 +2,7 @@
 
 <?php
 include_once "db_queries.php";
+include_once "io.php";
 include_once "config_db.php";
 session_start();
 $db = init_db();

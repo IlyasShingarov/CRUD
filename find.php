@@ -3,12 +3,13 @@
 <?php
 include_once "./config_db.php";
 include_once "./db_queries.php";
+include_once "io.php";
 session_start();
 $db = init_db();
 if($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST['find']))
 {
     $_SESSION["name"] = $_POST["name"];
-    print_db_by_name($db, $_POST["name"]);
+    print_by_name($db, $_POST["name"]);
 }
 ?>
 
