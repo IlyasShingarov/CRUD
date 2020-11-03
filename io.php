@@ -46,6 +46,7 @@ function print_card($user, $contacts)
             <?php foreach ($contacts as $contact):?>
                 <div class="contact">
                     <?=$contact['phone_number']?>
+                    <a href="/delete_phone.php?del=<?php echo $contact['phone_id']; ?>&usr=<?php echo $contact['user_id']; ?>" class="del_btn">Delete</a>
                 </div>
             <?php endforeach;?>
         </div>
@@ -80,6 +81,7 @@ function iterate_to_print($db, $result)
                 <?php foreach ($contacts as $contact):?>
                     <div class="contact">
                         <?=$contact['phone_number']?>
+                        <a href="/delete_phone.php?del=<?php echo $contact['phone_id']; ?>&usr=<?php echo $contact['user_id']; ?>&home" class="del_btn">Delete</a>
                     </div>
                 <?php endforeach;?>
             </div>

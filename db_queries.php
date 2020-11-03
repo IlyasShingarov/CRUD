@@ -71,3 +71,8 @@ function add_record($db, $name, $phones)
 
     add_phones_by_uid($db, $phones, $user_id);
 }
+
+function delete_phone_by_pid($db, $pid)
+{
+    $db->prepare("DELETE FROM contacts WHERE phone_id = '$pid'")->execute();
+}
