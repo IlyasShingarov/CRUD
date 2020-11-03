@@ -22,9 +22,9 @@ function print_upd_form($user, $contacts)
                 <?php $id = 1?>
                 <label>Контакты</label>
                 <?php foreach ($contacts as $contact):?>
-                    <div class="contact">
-                        <input type="hidden" name="phone_id" value="<?=$contact['phone_id']?>">
-                        <label><?="$id."?><input type="tel" name="phone[<?php echo $id++ ?>]" value="<?=$contact['phone_number']?>"></label>
+                    <div class="contact_entry">
+                        <label><?="$id."?><input type="tel" name="phone[<?php echo $id ?>]" value="<?=$contact['phone_number']?>"></label>
+                        <input type="hidden" name="phone_id[<?php echo $id++ ?>]" value="<?=$contact['phone_id']?>">
                     </div>
                 <?php endforeach;?>
             </div>

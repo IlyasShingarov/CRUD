@@ -1,5 +1,7 @@
 <link rel="stylesheet" href="/assets/css/style.css">
 
+<a href="/" class="btn">Назад к списку контактов</a>
+
 <?php
 include_once "db_queries.php";
 include_once "io.php";
@@ -14,10 +16,15 @@ if (isset($_GET['upd']))
     if ($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST['update']))
     {
         update_name_by_id($db, $_POST['name_upd'], $id);
-        print_r($_POST);
-        $phone = $_POST['phone'];
-        $phone_id = $_POST['phone_id'];
-        $db->prepare("UPDATE contacts SET phone_number =" . "$phone" . "WHERE user_id =" . "$id" . "AND phone_id = " . "$phone_id")->execute();
+        if (isset($_POST['phone']))
+        {
+            update_contacts_by_ph_id($db, $_POST['phone'], $_POST['phone_id']);
+        }
+
+        if (isset($_POST['add_phone']))
+        {
+            add_phones_by_uid($db, $_POST['add_phone'], $id);
+        }
     }
 
     $user_record = get_user_by_id($db, $id);
@@ -29,19 +36,20 @@ if (isset($_GET['upd']))
 ?>
 
 <script>
+    //let id = document.getElementsByClassName('contact').length;
     let id = 0;
     function add_entry() {
         let list = document.querySelector(".contacts_upd");
 
         let entry = document.createElement("div");
-        entry.className="contact";
+        entry.className="contact_add_entry";
 
         let label = document.createElement("label");
         label.innerText = "+. ";
 
         let inp = document.createElement("input");
         inp.type="tel";
-        inp.name="phone[+" + ++id + "]";
+        inp.name="add_phone[" + ++id + "]";
 
         label.appendChild(inp);
         entry.appendChild(label);
