@@ -13,9 +13,11 @@ if (isset($_GET['upd']))
 
     if ($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST['update']))
     {
-        $name = $_POST['name_upd'];
-        update_name_by_id($db, $name, $id);
-        //$db->prepare("UPDATE contacts SET phone_number =" . "$name" . " WHERE user_id =" . "$id")->execute();
+        update_name_by_id($db, $_POST['name_upd'], $id);
+        print_r($_POST);
+        $phone = $_POST['phone'];
+        $phone_id = $_POST['phone_id'];
+        $db->prepare("UPDATE contacts SET phone_number =" . "$phone" . "WHERE user_id =" . "$id" . "AND phone_id = " . "$phone_id")->execute();
     }
 
     $user_record = get_user_by_id($db, $id);
