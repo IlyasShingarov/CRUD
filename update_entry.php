@@ -45,17 +45,20 @@
         let list = document.querySelector(".contacts_upd");
 
         let entry = document.createElement("div");
-        entry.className="contact_add_entry";
+        entry.className="contact_entry";
 
         let label = document.createElement("label");
-        label.innerText = "+. ";
+        label.innerText = "+.";
 
         let inp = document.createElement("input");
         inp.type="tel";
         inp.name="add_phone[" + ++id + "]";
 
-        label.appendChild(inp);
+        label.classList.add("label");
+        inp.classList.add("input");
+
         entry.appendChild(label);
+        entry.appendChild(inp);
         list.appendChild(entry);
     }
 
