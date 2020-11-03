@@ -1,3 +1,5 @@
+<?php session_start();?>
+
 <link rel="stylesheet" href="/assets/css/style.css">
 
 <a href="/" class="btn">Назад к списку контактов</a>
@@ -6,7 +8,6 @@
 include_once "db_queries.php";
 include_once "io.php";
 include_once "config_db.php";
-session_start();
 $db = init_db();
 
 if (isset($_GET['upd']))

@@ -7,9 +7,8 @@ function init_db()
         $dbname = 'test';
         $dsn = "pgsql:host=$host;port=$port;dbname=$dbname";
         $username = 'postgres';
-        $passwd = 'q0735516';
+        $passwd = '12345';
         return new PDO($dsn, $username, $passwd);
-        //$db_connection =
     } catch (PDOException $e) {
         print "Error!: " . $e->getMessage() . "<br />";
     }

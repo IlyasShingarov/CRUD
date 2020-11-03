@@ -7,6 +7,7 @@ function print_all($db)
     if ($result) iterate_to_print($db, $result);
 }
 
+//Форма для обновления
 function print_upd_form($user, $contacts)
 {
     ?>
@@ -35,6 +36,7 @@ function print_upd_form($user, $contacts)
     <?php
 }
 
+// Карточка в панели обновления
 function print_card($user, $contacts)
 {
     ?>
@@ -61,6 +63,8 @@ function print_by_name($db, $name)
     if ($result) iterate_to_print($db, $result);
 }
 
+
+// Карточка 
 function iterate_to_print($db, $result)
 {
     foreach ($result as $row)
@@ -68,14 +72,15 @@ function iterate_to_print($db, $result)
         $contacts = get_contacts($db, $row);
         ?>
         <div class="user">
-            <div class="name">
-                <?=$row['user_name']?>
-            </div>
-            <div>
-                <a href="/update_entry.php?upd=<?php echo $row['user_id']; ?>" class="upd_btn">Update</a>
-            </div>
-            <div>
-                <a href="/delete_record.php?del=<?php echo $row['user_id']; ?>" class="del_btn">Delete</a>
+            <div class="head">
+
+                <div class="name">
+                    <?=$row['user_name']?>
+                </div>
+                <div class="hrefs">
+                    <a href="/update_entry.php?upd=<?php echo $row['user_id']; ?>" class="upd_btn">Update</a>
+                    <a href="/delete_record.php?del=<?php echo $row['user_id']; ?>" class="del_btn">Delete</a>
+                </div>    
             </div>
             <div class="contacts">
                 <?php foreach ($contacts as $contact):?>
