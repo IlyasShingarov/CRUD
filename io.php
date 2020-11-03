@@ -14,23 +14,26 @@ function print_upd_form($user, $contacts)
     <div class="user">
         <form action="" method="post">
             <div class="name">
-                <label>
+                <label class="label">
                     Имя
-                    <input type="text" name="name_upd" value="<?=$user['user_name']?>">
                 </label>
+                <input class="input" type="text" name="name_upd" value="<?=$user['user_name']?>">
             </div>
             <div class="contacts_upd">
                 <?php $id = 1?>
-                <label>Контакты</label>
+                <label class="label">Контакты</label>
                 <?php foreach ($contacts as $contact):?>
                     <div class="contact_entry">
-                        <label><?="$id."?><input type="tel" name="phone[<?php echo $id ?>]" value="<?=$contact['phone_number']?>"></label>
+                        <label class="label"><?="$id."?></label><input class="input" type="tel" name="phone[<?php echo $id ?>]" value="<?=$contact['phone_number']?>">
                         <input type="hidden" name="phone_id[<?php echo $id++ ?>]" value="<?=$contact['phone_id']?>">
                     </div>
                 <?php endforeach;?>
             </div>
-            <button type="button" id="add_phone_entry">Добавить контактный номер</button>
-            <button type="submit"  id="upd_btn" name="update">Обновить запись</button>
+            <div class="footer__form">
+                
+                <button class="btn" type="button" id="add_phone_entry">Добавить контактный номер</button>
+                <button class="btn" type="submit"  id="upd_btn" name="update">Обновить запись</button>
+            </div>
         </form>
     </div>
     <?php
@@ -48,7 +51,7 @@ function print_card($user, $contacts)
             <?php foreach ($contacts as $contact):?>
                 <div class="contact">
                     <?=$contact['phone_number']?>
-                    <a href="/delete_phone.php?del=<?php echo $contact['phone_id']; ?>&usr=<?php echo $contact['user_id']; ?>" class="del_btn">Delete</a>
+                    <a href="/delete_phone.php?del=<?php echo $contact['phone_id']; ?>&usr=<?php echo $contact['user_id']; ?>" class="del_btn"><img class="delete" src="delete.png" alt=""></a>
                 </div>
             <?php endforeach;?>
         </div>
@@ -78,15 +81,15 @@ function iterate_to_print($db, $result)
                     <?=$row['user_name']?>
                 </div>
                 <div class="hrefs">
-                    <a href="/update_entry.php?upd=<?php echo $row['user_id']; ?>" class="upd_btn">Update</a>
-                    <a href="/delete_record.php?del=<?php echo $row['user_id']; ?>" class="del_btn">Delete</a>
+                    <a href="/update_entry.php?upd=<?php echo $row['user_id']; ?>" class="upd_btn"><img class="refresh" src="refresh.png" alt=""></a>
+                    <a href="/delete_record.php?del=<?php echo $row['user_id']; ?>" class="del_btn"><img class="delete" src="delete.png" alt=""></a>
                 </div>    
             </div>
             <div class="contacts">
                 <?php foreach ($contacts as $contact):?>
                     <div class="contact">
                         <?=$contact['phone_number']?>
-                        <a href="/delete_phone.php?del=<?php echo $contact['phone_id']; ?>&usr=<?php echo $contact['user_id']; ?>&home" class="del_btn">Delete</a>
+                        <a href="/delete_phone.php?del=<?php echo $contact['phone_id']; ?>&usr=<?php echo $contact['user_id']; ?>&home" class="del_btn"><img class="x-mark" src="x-mark.png" alt=""></a>
                     </div>
                 <?php endforeach;?>
             </div>

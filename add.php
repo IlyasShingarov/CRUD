@@ -2,11 +2,10 @@
 
 <div class="main main__add">
 
-    <a href="/" class="back"><img src="back.png" alt=""></a>
+    <a href="/" class="back"><img class="back__icon"src="back.png" alt=""></a>
 
     <form class="form" action="" method="post">
         <div class="form__list">
-
             <div class="card">
                 <label class="label">Имя</label>
                 <input class="input" type="text" name="name">
