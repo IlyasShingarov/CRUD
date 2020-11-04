@@ -41,14 +41,19 @@ function print_card($user, $contacts)
 {
     ?>
     <div class="user">
-        <div class="name">
-            <?php echo $user['user_name']; ?>
+        <div class="head">
+            <div class="name">
+                <?php echo $user['user_name']; ?>
+            </div>
+            <div class="hrefs">
+                <a href="/delete_record.php?del=<?php echo $_GET['upd']; ?>" class="del_btn"><img class="delete" src="assets/img/delete.png" alt=""></a>
+            </div>
         </div>
         <div class="contacts">
             <?php foreach ($contacts as $contact):?>
                 <div class="contact">
                     <?=$contact['phone_number']?>
-                    <a href="/delete_phone.php?del=<?php echo $contact['phone_id']; ?>&usr=<?php echo $contact['user_id']; ?>" class="del_btn"><img class="delete" src="delete.png" alt=""></a>
+                    <a href="/delete_phone.php?del=<?php echo $contact['phone_id']; ?>&usr=<?php echo $contact['user_id']; ?>" class="del_btn"><img class="delete" src="assets/img/x-mark.png" alt=""></a>
                 </div>
             <?php endforeach;?>
         </div>
@@ -76,15 +81,15 @@ function iterate_to_print($db, $result)
                     <?=$row['user_name']?>
                 </div>
                 <div class="hrefs">
-                    <a href="/update_entry.php?upd=<?php echo $row['user_id']; ?>" class="upd_btn"><img class="refresh" src="refresh.png" alt=""></a>
-                    <a href="/delete_record.php?del=<?php echo $row['user_id']; ?>" class="del_btn"><img class="delete" src="delete.png" alt=""></a>
+                    <a href="/update_entry.php?upd=<?php echo $row['user_id']; ?>" class="upd_btn"><img class="refresh" src="assets/img/refresh.png" alt=""></a>
+                    <a href="/delete_record.php?del=<?php echo $row['user_id']; ?>" class="del_btn"><img class="delete" src="assets/img/delete.png" alt=""></a>
                 </div>    
             </div>
             <div class="contacts">
                 <?php foreach ($contacts as $contact):?>
                     <div class="contact">
                         <?=$contact['phone_number']?>
-                        <a href="/delete_phone.php?del=<?php echo $contact['phone_id']; ?>&usr=<?php echo $contact['user_id']; ?>&home" class="del_btn"><img class="x-mark" src="x-mark.png" alt=""></a>
+                        <a href="/delete_phone.php?del=<?php echo $contact['phone_id']; ?>&usr=<?php echo $contact['user_id']; ?>&home" class="del_btn"><img class="x-mark" src="assets/img/x-mark.png" alt=""></a>
                     </div>
                 <?php endforeach;?>
             </div>

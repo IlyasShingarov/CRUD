@@ -2,7 +2,7 @@
 
 <div class="main main__add">
 
-    <a href="/" class="back"><img class="back__icon"src="back.png" alt=""></a>
+    <a href="/" class="back"><img class="back__icon" src="assets/img/back.png" alt=""></a>
 
     <form class="form" action="" method="post">
         <div class="form__list">
