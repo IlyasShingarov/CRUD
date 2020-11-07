@@ -7,14 +7,13 @@
 
                 <a href="add.php" class="btn">Создать новую запись</a>
                 <div class="search">
-
                     <label class="label"> Имя </label>
-                    <input class="input"type="text" name="name">
+                    <input class="input" type="text" name="name">
                 </div>    
             </div>
             <div class="footer__form">
-                <button class="btn"type="submit" id="find_by_name_btn" name="find">Найти</button>
-                <button class="btn"type="submit" id="show_all" name="show_all">Показать всех</button>
+                <button class="btn" type="submit" id="find_by_name_btn" name="find">Найти</button>
+                <button class="btn" type="submit" id="show_all" name="show_all">Показать всех</button>
             </div>
         </form>
     </div>
