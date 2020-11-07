@@ -52,7 +52,10 @@ function update_contacts_by_ph_id($db, $phones, $phone_ids)
 {
     for ($i = 1; $i <= count($phones); $i++)
     {
-        $db->prepare("UPDATE contacts SET phone_number =" . $phones[$i] . " WHERE phone_id = " . $phone_ids[$i])->execute();
+        if ($phones[$i])
+            $db->prepare("UPDATE contacts SET phone_number =" . $phones[$i] . " WHERE phone_id = " . $phone_ids[$i])->execute();
+        else
+            delete_phone_by_pid($db, $phone_ids[$i]);
     }
 }
 
@@ -60,7 +63,8 @@ function add_phones_by_uid($db, $phones, $uid)
 {
     foreach ($phones as $ph)
     {
-        $db->prepare("INSERT INTO contacts (user_id, phone_number) VALUES (".$uid.", '".$ph."');")->execute();
+        if ($ph)
+            $db->prepare("INSERT INTO contacts (user_id, phone_number) VALUES (".$uid.", '".$ph."');")->execute();
     }
 }
 

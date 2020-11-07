@@ -1,20 +1,27 @@
-<link rel="stylesheet" href="/assets/css/style.css">
+<?php session_start();?>
+<link rel="stylesheet" href="assets/css/style.css">
+<div class="main">
+    <div>
+        <form action="" method="post">
+            <div class="form__interface">
 
-<a href="/add.php" class="btn">Создать новую запись</a>
-
-<div>
-    <form action="" method="post">
-        <label> Имя <input type="text" name="name"></label>
-        <button type="submit" id="find_by_name_btn" name="find">Найти пользователей по имени</button>
-        <button type="submit" id="show_all" name="show_all">Показать всех</button>
-    </form>
-</div>
-
-<?php
+                <a href="add.php" class="btn">Создать новую запись</a>
+                <div class="search">
+                    <label class="label"> Имя </label>
+                    <input class="input" type="text" name="name">
+                </div>    
+            </div>
+            <div class="footer__form">
+                <button class="btn" type="submit" id="find_by_name_btn" name="find">Найти</button>
+                <button class="btn" type="submit" id="show_all" name="show_all">Показать всех</button>
+            </div>
+        </form>
+    </div>
+    
+    <?php
     include_once "db_queries.php";
     include_once "config_db.php";
     include_once "io.php";
-    session_start();
     $db = init_db();
     if($_SERVER["REQUEST_METHOD"] == "POST" and isset($_POST['find']))
     {
@@ -27,6 +34,7 @@
         <div class="container">
             <?php print_all($db); ?>
         </div>
-    <?php
+        <?php
     }
 ?>
+</div>
